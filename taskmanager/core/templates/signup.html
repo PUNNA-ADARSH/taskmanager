@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container">
+    <h2>Signup</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <input name="username" placeholder="Username">
+        <input name="password" type="password" placeholder="Password">
+
+        <select name="role">
+            <option value="Admin">Admin</option>
+            <option value="Member">Member</option>
+        </select>
+
+        <button>Signup</button>
+    </form>
+
+    <a href="/">Login</a>
+</div>

@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container">
+    <h2>Create Project</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <input name="name" placeholder="Project Name">
+        <button>Create</button>
+    </form>
+</div>

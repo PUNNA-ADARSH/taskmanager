@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container">
+    <h2>Dashboard ({{ role }})</h2>
+
+    <a href="/logout">Logout</a>
+
+    {% if role == 'Admin' %}
+        <a href="/create-project">Create Project</a>
+        <a href="/create-task">Create Task</a>
+    {% endif %}
+
+    <h3>Projects</h3>
+    {% for p in projects %}
+        <div class="card">{{ p.name }}</div>
+    {% endfor %}
+
+    <h3>Tasks</h3>
+    {% for t in tasks %}
+        <div class="card">
+            {{ t.title }} - {{ t.status }}
+            {% if t.status != "Completed" %}
+                <a href="/update-task/{{ t.id }}">Mark Completed</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

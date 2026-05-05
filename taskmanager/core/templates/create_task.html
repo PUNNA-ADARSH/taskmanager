@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container">
+    <h2>Create Task</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input name="title" placeholder="Task Title">
+
+        <select name="project">
+            {% for p in projects %}
+                <option value="{{ p.id }}">{{ p.name }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="user">
+            {% for u in users %}
+                <option value="{{ u.id }}">{{ u.username }}</option>
+            {% endfor %}
+        </select>
+
+        <button>Create Task</button>
+    </form>
+</div>
