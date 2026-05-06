@@ -1,1 +1,1 @@
-web: python manage.py migrate && python manage.py collectstatic --noinput && gunicorn taskmanager.wsgi:application 
+web: gunicorn taskmanager.wsgi:application --bind 0.0.0.0:$PORT
